@@ -24,7 +24,7 @@ export default function ScoreRadar({ buzzScore, hookScore, emotionScore, labels 
 
   return (
     <div className="rounded-2xl bg-white/5 ring-1 ring-white/10 p-4 flex flex-col">
-      <ResponsiveContainer width="100%" height={180}>
+      <ResponsiveContainer width="100%" height={144}>
         <RadarChart data={data} margin={{ top: 10, right: 20, bottom: 10, left: 20 }}>
           <PolarGrid stroke="rgba(255,255,255,0.1)" />
           <PolarAngleAxis

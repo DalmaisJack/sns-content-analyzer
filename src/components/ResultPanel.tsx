@@ -27,15 +27,12 @@ export default function ResultPanel({ result, loading, locale, caption }: Result
   if (loading) {
     return (
       <div className="space-y-3 fade-in">
-        {/* Mobile: 3 cards横並び + Radar下 / lg+: 2カラム */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-          <div className="grid grid-cols-3 lg:grid-cols-1 gap-2">
-            <ScoreCard label="" value={0} color="purple" skeleton />
-            <ScoreCard label="" value={0} color="blue"   skeleton />
-            <ScoreCard label="" value={0} color="pink"   skeleton />
-          </div>
-          <ScoreRadarSkeleton />
+        <div className="grid grid-cols-3 gap-2">
+          <ScoreCard label="" value={0} color="purple" skeleton />
+          <ScoreCard label="" value={0} color="blue"   skeleton />
+          <ScoreCard label="" value={0} color="pink"   skeleton />
         </div>
+        <ScoreRadarSkeleton />
         <SkeletonBlock lines={2} />
         <SkeletonBlock lines={3} />
         <SkeletonBlock lines={2} />
@@ -49,26 +46,25 @@ export default function ResultPanel({ result, loading, locale, caption }: Result
   return (
     <div className="space-y-3 fade-in">
 
-      {/* Scores + Radar */}
-      {/* Mobile: 3枚横並び(grid-cols-3) → Radar下 / lg+: 左列スタック・右Radar */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-3">
-        <div className="grid grid-cols-3 lg:grid-cols-1 gap-2">
-          <ScoreCard label={tx.scores.buzz}    value={result.buzzScore}    color="purple" />
-          <ScoreCard label={tx.scores.hook}    value={result.hookScore}    color="blue" />
-          <ScoreCard label={tx.scores.emotion} value={result.emotionScore} color="pink" />
-        </div>
-        <ScoreRadar
-          buzzScore={result.buzzScore}
-          hookScore={result.hookScore}
-          emotionScore={result.emotionScore}
-          labels={{ buzz: tx.scores.buzz, hook: tx.scores.hook, emotion: tx.scores.emotion }}
-        />
+      {/* Score Cards — 3 columns */}
+      <div className="grid grid-cols-3 gap-2">
+        <ScoreCard label={tx.scores.buzz}    value={result.buzzScore}    color="purple" />
+        <ScoreCard label={tx.scores.hook}    value={result.hookScore}    color="blue" />
+        <ScoreCard label={tx.scores.emotion} value={result.emotionScore} color="pink" />
       </div>
+
+      {/* Radar — full width, compact */}
+      <ScoreRadar
+        buzzScore={result.buzzScore}
+        hookScore={result.hookScore}
+        emotionScore={result.emotionScore}
+        labels={{ buzz: tx.scores.buzz, hook: tx.scores.hook, emotion: tx.scores.emotion }}
+      />
 
       {/* Before / After */}
       <div className="rounded-2xl p-4 bg-white/5 ring-1 ring-white/10">
         <p className="text-sm font-semibold text-white mb-3">{tx.sections.beforeAfter}</p>
-        <div className="flex flex-col sm:flex-row gap-3">
+        <div className="flex flex-col sm:flex-row gap-2">
           <div className="flex-1 border-l-2 border-gray-500 pl-3 min-w-0">
             <p className="text-xs text-gray-400 mb-1">{tx.beforeLabel}</p>
             <p className="text-xs text-gray-300 leading-relaxed line-clamp-6 whitespace-pre-wrap break-words">
@@ -118,7 +114,7 @@ export default function ResultPanel({ result, loading, locale, caption }: Result
       {/* Hashtags */}
       <div className="rounded-2xl p-4 bg-white/5 ring-1 ring-white/10">
         <p className="text-sm font-semibold text-white mb-3">{tx.sections.hashtags}</p>
-        <div className="flex flex-wrap gap-2">
+        <div className="flex flex-wrap gap-1.5">
           {result.hashtags.map((tag, i) => (
             <span
               key={i}

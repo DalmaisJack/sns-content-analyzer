@@ -18,20 +18,20 @@ export default function ScoreCard({ label, value, color, skeleton = false }: Sco
 
   if (skeleton) {
     return (
-      <div className="rounded-2xl p-3 sm:p-4 bg-white/5 ring-1 ring-white/10 animate-pulse">
+      <div className="rounded-2xl p-3 bg-white/5 ring-1 ring-white/10 animate-pulse">
         <div className="h-2 w-16 rounded bg-white/10 mb-2" />
-        <div className="h-8 w-12 rounded bg-white/10" />
+        <div className="h-7 w-10 rounded bg-white/10" />
       </div>
     );
   }
 
   return (
-    <div className={`rounded-2xl p-3 sm:p-4 ${c.bg} ring-1 ${c.ring}`}>
+    <div className={`rounded-2xl p-3 ${c.bg} ring-1 ${c.ring}`}>
       <p className="text-xs text-gray-400 uppercase tracking-widest mb-1 truncate">{label}</p>
-      <p className="text-4xl sm:text-5xl font-black tabular-nums" style={{ color: c.hex }}>
+      <p className="text-3xl sm:text-4xl font-black tabular-nums" style={{ color: c.hex }}>
         {value}
       </p>
-      <div className="mt-2 h-1.5 rounded-full bg-white/10 overflow-hidden">
+      <div className="mt-2 h-1 rounded-full bg-white/10 overflow-hidden">
         <div
           className="h-full rounded-full transition-all duration-700 ease-out"
           style={{ width: `${value}%`, backgroundColor: c.hex }}

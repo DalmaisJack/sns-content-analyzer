@@ -96,6 +96,7 @@ export async function POST(req: NextRequest) {
     const message = await client.messages.create({
       model: 'claude-opus-4-6',
       max_tokens: 1024,
+      system: 'You are a JSON API. Always respond with a single valid JSON object only. Never include markdown, code fences, or explanations.',
       messages: [{ role: 'user', content: prompt }],
     });
 

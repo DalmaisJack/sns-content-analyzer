@@ -74,7 +74,7 @@ export default function Home() {
         <div className="lg:w-[420px] flex-shrink-0 overflow-y-auto h-full p-4 lg:p-6">
           {/* Hero */}
           <div className="text-center mb-5">
-            <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white mb-1">
+            <h1 className="text-xl sm:text-2xl font-black tracking-tight text-white mb-1 whitespace-nowrap">
               {tx.title}
             </h1>
             <p className="text-xs text-gray-400">{tx.subtitle}</p>

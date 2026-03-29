@@ -69,9 +69,9 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="max-w-5xl mx-auto px-4 py-10">
+      <main className="max-w-5xl mx-auto px-4 py-6 sm:py-10">
         {/* Hero */}
-        <div className="text-center mb-8">
+        <div className="text-center mb-5 sm:mb-8">
           <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-white mb-2">
             {tx.title}
           </h1>
@@ -105,8 +105,7 @@ export default function Home() {
                 value={caption}
                 onChange={(e) => setCaption(e.target.value)}
                 placeholder={tx.placeholder}
-                rows={10}
-                className={`w-full rounded-2xl bg-white/5 px-4 py-3 text-sm text-gray-200 placeholder-gray-600 resize-none focus:outline-none transition-all ring-1 ${
+                className={`w-full h-32 sm:h-40 lg:h-52 rounded-2xl bg-white/5 px-4 py-3 text-sm text-gray-200 placeholder-gray-600 resize-none focus:outline-none transition-all ring-1 ${
                   isOverLimit
                     ? 'ring-red-500 focus:ring-red-400'
                     : 'ring-white/10 focus:ring-purple-500'

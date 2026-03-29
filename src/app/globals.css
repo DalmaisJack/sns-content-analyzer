@@ -22,3 +22,14 @@ body {
 .fade-in {
   animation: fadeIn 0.3s ease;
 }
+
+/* Mobile base */
+html, body {
+  height: 100%;
+}
+
+@media (max-width: 640px) {
+  body {
+    font-size: 14px;
+  }
+}

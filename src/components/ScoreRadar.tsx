@@ -47,7 +47,7 @@ export default function ScoreRadar({ buzzScore, hookScore, emotionScore, labels 
 
 export function ScoreRadarSkeleton() {
   return (
-    <div className="rounded-2xl bg-white/5 ring-1 ring-white/10 flex items-center justify-center animate-pulse" style={{ minHeight: 180 }}>
+    <div className="rounded-2xl bg-white/5 ring-1 ring-white/10 flex items-center justify-center animate-pulse" style={{ minHeight: 144 }}>
       <div className="w-28 h-28 rounded-full bg-white/10" />
     </div>
   );

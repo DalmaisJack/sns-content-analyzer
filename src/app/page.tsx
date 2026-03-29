@@ -52,10 +52,10 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#0a0a0f] text-white">
+    <div className="h-screen overflow-hidden flex flex-col bg-[#0a0a0f] text-white">
       {/* Header */}
-      <header className="sticky top-0 z-10 border-b border-white/10 bg-[#0a0a0f]/80 backdrop-blur-md">
-        <div className="max-w-5xl mx-auto px-4 h-14 flex items-center justify-between">
+      <header className="flex-shrink-0 border-b border-white/10 bg-[#0a0a0f]/80 backdrop-blur-md">
+        <div className="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="text-lg">✨</span>
             <span className="text-sm font-bold text-white">{tx.title}</span>
@@ -69,20 +69,19 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="max-w-5xl mx-auto px-4 py-6 sm:py-10">
-        {/* Hero */}
-        <div className="text-center mb-5 sm:mb-8">
-          <h1 className="text-3xl sm:text-4xl font-black tracking-tight text-white mb-2">
-            {tx.title}
-          </h1>
-          <p className="text-sm text-gray-400">{tx.subtitle}</p>
-        </div>
+      <main className="flex-1 overflow-hidden flex flex-col lg:flex-row max-w-7xl mx-auto w-full">
+        {/* Left panel */}
+        <div className="lg:w-[420px] flex-shrink-0 overflow-y-auto h-full p-4 lg:p-6">
+          {/* Hero */}
+          <div className="text-center mb-5">
+            <h1 className="text-2xl sm:text-3xl font-black tracking-tight text-white mb-1">
+              {tx.title}
+            </h1>
+            <p className="text-xs text-gray-400">{tx.subtitle}</p>
+          </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {/* Left: Input */}
           <div className="space-y-4">
-
-            {/* Platform pills — scrollable */}
+            {/* Platform pills */}
             <div className="flex gap-2 overflow-x-auto pb-1" style={{ scrollbarWidth: 'none' }}>
               {PLATFORMS.map((p) => (
                 <button
@@ -105,13 +104,12 @@ export default function Home() {
                 value={caption}
                 onChange={(e) => setCaption(e.target.value)}
                 placeholder={tx.placeholder}
-                className={`w-full h-32 sm:h-40 lg:h-52 rounded-2xl bg-white/5 px-4 py-3 text-sm text-gray-200 placeholder-gray-600 resize-none focus:outline-none transition-all ring-1 ${
+                className={`w-full h-36 sm:h-44 rounded-2xl bg-white/5 px-4 py-3 text-sm text-gray-200 placeholder-gray-600 resize-none focus:outline-none transition-all ring-1 ${
                   isOverLimit
                     ? 'ring-red-500 focus:ring-red-400'
                     : 'ring-white/10 focus:ring-purple-500'
                 }`}
               />
-              {/* Char count / limit */}
               <div className="flex justify-end mt-1 gap-1 text-xs">
                 <span className={isOverLimit ? 'text-red-400 font-semibold' : 'text-gray-500'}>
                   {isOverLimit ? tx.overLimit + ' · ' : ''}{tx.charCount(caption.length)}
@@ -146,29 +144,25 @@ export default function Home() {
               )}
             </button>
           </div>
+        </div>
 
-          {/* Right: Results */}
-          <div>
-            {(loading || result) ? (
-              <ResultPanel
-                result={result}
-                loading={loading}
-                locale={locale}
-                caption={caption}
-              />
-            ) : (
-              <div className="h-full flex flex-col items-center justify-center text-center py-20 text-gray-700">
-                <div className="text-5xl mb-3">📊</div>
-                <p className="text-sm">{tx.analyzeBtn} →</p>
-              </div>
-            )}
-          </div>
+        {/* Right panel */}
+        <div className="flex-1 overflow-y-auto h-full p-4 lg:p-6 lg:border-l lg:border-white/10">
+          {(loading || result) ? (
+            <ResultPanel
+              result={result}
+              loading={loading}
+              locale={locale}
+              caption={caption}
+            />
+          ) : (
+            <div className="h-full flex flex-col items-center justify-center text-center text-gray-700">
+              <div className="text-5xl mb-3">📊</div>
+              <p className="text-sm">{tx.analyzeBtn} →</p>
+            </div>
+          )}
         </div>
       </main>
-
-      <footer className="text-center py-6 text-xs text-gray-700 border-t border-white/5">
-        {tx.footer}
-      </footer>
     </div>
   );
 }

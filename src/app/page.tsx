@@ -52,9 +52,9 @@ export default function Home() {
   };
 
   return (
-    <div className="h-screen overflow-hidden flex flex-col bg-[#0a0a0f] text-white">
+    <div className="min-h-screen flex flex-col bg-[#0a0a0f] text-white">
       {/* Header */}
-      <header className="flex-shrink-0 border-b border-white/10 bg-[#0a0a0f]/80 backdrop-blur-md">
+      <header className="sticky top-0 z-10 flex-shrink-0 border-b border-white/10 bg-[#0a0a0f]/80 backdrop-blur-md">
         <div className="max-w-7xl mx-auto px-4 h-14 flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="text-lg">✨</span>
@@ -69,9 +69,9 @@ export default function Home() {
         </div>
       </header>
 
-      <main className="flex-1 overflow-hidden flex flex-col lg:flex-row max-w-7xl mx-auto w-full">
+      <main className="flex-1 flex flex-col lg:flex-row max-w-7xl mx-auto w-full">
         {/* Left panel */}
-        <div className="lg:w-[420px] flex-shrink-0 overflow-y-auto h-full p-4 lg:p-6">
+        <div className="lg:w-[420px] flex-shrink-0 p-4 lg:p-6 lg:sticky lg:top-14 lg:h-[calc(100vh-56px)] lg:overflow-y-auto">
           {/* Hero */}
           <div className="text-center mb-5">
             <h1 className="text-xl sm:text-2xl font-black tracking-tight text-white mb-1 whitespace-nowrap">
@@ -147,7 +147,7 @@ export default function Home() {
         </div>
 
         {/* Right panel */}
-        <div className="flex-1 overflow-y-auto h-full p-4 lg:p-6 lg:border-l lg:border-white/10">
+        <div className="flex-1 p-4 lg:p-6 lg:border-l lg:border-white/10">
           {(loading || result) ? (
             <ResultPanel
               result={result}

@@ -5,7 +5,6 @@ const client = new Anthropic();
 
 const PLATFORM_GUIDELINES: Record<string, string> = {
   TikTok:   'TikTok (max 2200 chars, casual/trendy tone, Gen Z friendly)',
-  Reels:    'Instagram Reels (max 2200 chars, visual storytelling, lifestyle/aesthetic)',
   Shorts:   'YouTube Shorts (max 5000 chars, informative, searchable keywords)',
   X:        'X/Twitter (max 280 chars, punchy, conversational)',
   Threads:  'Threads (max 500 chars, casual, community-driven)',

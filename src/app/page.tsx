@@ -6,7 +6,7 @@ import { t } from '@/lib/i18n';
 import { PLATFORM_CHAR_LIMITS } from '@/lib/types';
 import type { AnalyzeResult, Locale, Platform } from '@/lib/types';
 
-const PLATFORMS: Platform[] = ['TikTok', 'Reels', 'Shorts', 'X', 'Threads', 'LinkedIn'];
+const PLATFORMS: Platform[] = ['TikTok', 'Shorts', 'X', 'Threads', 'LinkedIn'];
 
 export default function Home() {
   const [locale, setLocale] = useState<Locale>('en');
